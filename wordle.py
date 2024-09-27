@@ -134,13 +134,12 @@ def prepare_game():
                 if secret_word.isalpha():
                     pass
         elif secret_word.isdigit():
-            numcheck = int(secret_word)
-            random.seed(numcheck)
+            random.seed(int(secret_word))
             secret_word = random.choice(sec_words)
         else:
             raise ValueError(INVALID_INPUT)
     elif len(sys.argv) == 1:
-        secret_word = random.choice(list(sec_words))
+        secret_word = random.choice(sec_words)
     else:
         raise ValueError(INVALID_INPUT)
 
@@ -191,7 +190,7 @@ def get_feedback(secret_word, guessed_word):
     for i in range(NUM_LETTERS):
         if secret_word[i] in x:
             x[secret_word[i]] += 1
-        else:
+        else
             x[secret_word[i]] = 1
     
     for i in range(NUM_LETTERS):
