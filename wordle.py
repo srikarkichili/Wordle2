@@ -101,7 +101,6 @@ def color_word(colors, word):
 
     return "".join(colored_word)
 
-
 # TODO: Modify this function. You may delete this comment when you are done.
 def prepare_game():
     """
@@ -147,7 +146,6 @@ def prepare_game():
 
     # You do not have to change this return statement
     return secret_word, valid_words
-
 
 # TODO: Modify this function. You may delete this comment when you are done.
 def is_valid_guess(guess, valid_guesses):
@@ -211,6 +209,7 @@ def get_feedback(secret_word, guessed_word):
     for i in range(NUM_LETTERS):
         if feedback[i] is None:
             feedback[i] = NOT_IN_WORD_COLOR + guessed_word[i] + RESET_COLOR
+    return join.""(feedback)
     # You do not have to change this return statement
     return color_word(feedback, guessed_word)
 
