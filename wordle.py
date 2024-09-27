@@ -190,7 +190,7 @@ def get_feedback(secret_word, guessed_word):
     for i in range(NUM_LETTERS):
         if secret_word[i] in x:
             x[secret_word[i]] += 1
-        else
+        else:
             x[secret_word[i]] = 1
     
     for i in range(NUM_LETTERS):
