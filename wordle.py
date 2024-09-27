@@ -133,7 +133,7 @@ def prepare_game():
         if len(secret_word) == 5:
             if secret_word.islower():
                 if secret_word.isalpha():
-                    valid_words.append(secret_word)
+                    pass
         elif secret_word.isdigit():
             numcheck = int(secret_word)
             random.seed(numcheck)
