@@ -208,7 +208,6 @@ def get_feedback(secret_word, guessed_word):
     for i in range(NUM_LETTERS):
         if feedback[i] is None:
             feedback[i] = NOT_IN_WORD_COLOR + guessed_word[i] + RESET_COLOR
-    return join.""(feedback)
     # You do not have to change this return statement
     return color_word(feedback, guessed_word)
 
