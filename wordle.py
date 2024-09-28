@@ -203,7 +203,7 @@ def get_feedback(secret_word, guessed_word):
             if guessed_word[i] != secret_word[i]:
                 if x[guessed_word[i]] > 0:
                     feedback[i] = WRONG_SPOT_COLOR + guessed_word[i] + RESET_COLOR
-        x[guessed_word[i]] -= 1
+            x[guessed_word[i]] -= 1
     
     for i in range(NUM_LETTERS):
         if feedback[i] is None:
