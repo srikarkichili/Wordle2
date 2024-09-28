@@ -183,7 +183,7 @@ def get_feedback(secret_word, guessed_word):
           There will only be 5 lowercase letters with the ANSI coloring
           in the returned value.
     """
-    #feedback = [None] * NUM_LETTERS
+    # Modify this! This is just starter code.
     
     feedback = [NOT_IN_WORD_COLOR + i + RESET_COLOR for i in guessed_word]
     count = {}
@@ -200,38 +200,14 @@ def get_feedback(secret_word, guessed_word):
         
     for i in range(NUM_LETTERS):
         if feedback[i] == (NOT_IN_WORD_COLOR + guessed_word[i] + RESET_COLOR):
-            if guessed_word[i] in count:
-                if count[guessed_word[i]] > 0:
-                    feedback[i] = WRONG_SPOT_COLOR + guessed_word[i] + RESET_COLOR
-                    count[guessed_word[i]] -= 1
+            if guessed_word[i] in count and count[guessed_word[i]] > 0:
+                feedback[i] = WRONG_SPOT_COLOR + guessed_word[i] + RESET_COLOR
+                count[guessed_word[i]] -= 1
     return "".join(feedback)
-    # Modify this! This is just starter code.
-    """
-    x = {}
-    for i in range(NUM_LETTERS):
-        if secret_word[i] in x:
-            x[secret_word[i]] += 1
-        else:
-            x[secret_word[i]] = 1
     
-    for i in range(NUM_LETTERS):
-        if secret_word[i] == guessed_word[i] and x[guessed_word[i]] > 0:
-            feedback[i] = CORRECT_COLOR + guessed_word[i] + RESET_COLOR
-            x[guessed_word[i]] -= 1
-    
-    for i in range(NUM_LETTERS):
-        if guessed_word[i] in secret_word:
-            if guessed_word[i] != secret_word[i]:
-                if x[guessed_word[i]] > 0:
-                    feedback[i] = WRONG_SPOT_COLOR + guessed_word[i] + RESET_COLOR
-            x[guessed_word[i]] -= 1
-    
-    for i in range(NUM_LETTERS):
-        if feedback[i] is None:
-            feedback[i] = NOT_IN_WORD_COLOR + guessed_word[i] + RESET_COLOR
     # You do not have to change this return statement
     return color_word(feedback, guessed_word)
-"""
+
 # DO NOT modify this function.
 def main():
     """
