@@ -183,9 +183,30 @@ def get_feedback(secret_word, guessed_word):
           There will only be 5 lowercase letters with the ANSI coloring
           in the returned value.
     """
-    feedback = [None] * NUM_LETTERS
+    #feedback = [None] * NUM_LETTERS
+    
+    feedback = [NOT_IN_WORD_COLOR + i + RESET_COLOR for i in guessed_word]
+    count = {}
+    for i in secret_word:
+        if i in count:
+            count[i] += 1
+        else:
+            count[i] = 1
 
+    for i in range(NUM_LETTERS):
+        if guessed_word[i] == secret_word[i]:
+            feedback[i] = CORRECT_COLOR + guessed_word[i] + RESET_COLOR
+            count[guessed_word[i]] -= 1
+        
+    for i in range(NUM_LETTERS):
+        if feedback[i] == (NOT_IN_WORD_COLOR + guessed_word[i] + RESET_COLOR):
+            if guessed_word[i] in count:
+                if count[guessed_word[i]] > 0:
+                    feedback[i] = WRONG_SPOT_COLOR + guessed_word[i] + RESET_COLOR
+                    count[guessed_word[i]] -= 1
+    return "".join(feedback)
     # Modify this! This is just starter code.
+    """
     x = {}
     for i in range(NUM_LETTERS):
         if secret_word[i] in x:
@@ -210,7 +231,7 @@ def get_feedback(secret_word, guessed_word):
             feedback[i] = NOT_IN_WORD_COLOR + guessed_word[i] + RESET_COLOR
     # You do not have to change this return statement
     return color_word(feedback, guessed_word)
-
+"""
 # DO NOT modify this function.
 def main():
     """
